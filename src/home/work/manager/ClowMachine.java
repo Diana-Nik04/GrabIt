@@ -30,13 +30,9 @@ public class ClowMachine {
     }
 
     private void pressStartButton() throws IOException {
-        ioService.write("нажмите Enter");
-        try {
-            System.in.read();
-            clow.tryToGetToy();
-        } catch (IOException e) {
+        ioService.write("нажмите на кнопку");
+        clow.tryToGetToy();
 
-        }
     }
 
     public void gameProcess(int numberOfTries) {
@@ -48,5 +44,10 @@ public class ClowMachine {
                 ioService.write("ошибка ввода Enter ");
             }
         }
+        ioService.write("THE END");
+
+
+
+
     }
 }

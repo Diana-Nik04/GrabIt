@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class Screen extends JFrame {
     private JLabel label;
+    private JButton jButton;
     private JFrame frame;
 
     public Screen() throws HeadlessException {
@@ -20,6 +21,8 @@ public class Screen extends JFrame {
         this.frame = new JFrame("Экран");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.label = new JLabel(String.valueOf(numberOfTries));
+        this.jButton= new JButton("START");
+        this.frame.getContentPane().add(jButton);
         this.frame.getContentPane().add(label);
         this.frame.setPreferredSize(new Dimension(250,80));
         this.frame.pack();

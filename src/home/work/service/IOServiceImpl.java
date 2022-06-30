@@ -9,8 +9,8 @@ public class IOServiceImpl implements  IOService{
     }
 
     @Override
-    public String write(String message) {
-        return message;
+    public void write(String message) {
+        System.out.println(message);;
     }
 
     @Override
