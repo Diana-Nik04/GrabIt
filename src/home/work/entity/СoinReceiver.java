@@ -23,7 +23,12 @@ public class СoinReceiver {
     public int tryCounter(int someCash) {
         setCurrentCashAmount(someCash);
         if (this.currentCashAmount == MIN_COIN_FOR_TRY || currentCashAmount % MIN_COIN_FOR_TRY == 0) {
-            return this.tries = currentCashAmount / MIN_COIN_FOR_TRY ;
+            this.tries = currentCashAmount / MIN_COIN_FOR_TRY ;
+            if(this.tries==4)
+            {
+                this.tries++;
+            }
+            return this.tries;
         }
         return this.tries;
     }

@@ -16,7 +16,7 @@ public class ClowMachine {
 
 
     public ClowMachine() {
-        this.box = new BoxWithToys(20);
+        this.box = new BoxWithToys();
         this.coinReceiver = new СoinReceiver();
         this.clow = new Clow();
         this.ioService = new IOServiceImpl();
@@ -45,9 +45,5 @@ public class ClowMachine {
             }
         }
         ioService.write("THE END");
-
-
-
-
     }
 }

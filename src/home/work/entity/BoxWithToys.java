@@ -4,9 +4,9 @@ public class BoxWithToys {
     int boxCapacity;
     int boxCurrentState;
 
-    public BoxWithToys(int boxCapacity) {
-        this.boxCapacity = boxCapacity;
-        this.boxCurrentState = 10 ;
+    public BoxWithToys() {
+        this.boxCapacity = 10;
+        this.boxCurrentState = 0 ;
     }
 
     public int getBoxCapacity() {
@@ -20,9 +20,13 @@ public class BoxWithToys {
     public void setBoxCurrentState(int boxCurrentState) {
         this.boxCurrentState = boxCurrentState;
     }
+
+    public void boxFiller(){
+        this.boxCurrentState = boxCapacity;
+    }
     public void callManager(){
         if(boxCurrentState==2){
-            System.out.println("ОСталось 2 игрушки");
+            System.out.println("");
         }
         if(boxCurrentState<boxCapacity/2){
             System.out.println("Достигнута половина вместимости коробки с игрушками");
