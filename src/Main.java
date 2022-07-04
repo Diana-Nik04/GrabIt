@@ -6,6 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
         ClowMachine clowMachine= new ClowMachine();
-        clowMachine.run(100);
+        clowMachine.run();
     }
 }

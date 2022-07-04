@@ -8,17 +8,8 @@ public class BoxWithToys {
         this.boxCapacity = 10;
         this.boxCurrentState = 0 ;
     }
-
-    public int getBoxCapacity() {
-        return boxCapacity;
-    }
-
     public int getBoxCurrentState() {
         return boxCurrentState;
-    }
-
-    public void setBoxCurrentState(int boxCurrentState) {
-        this.boxCurrentState = boxCurrentState;
     }
 
     public void boxFiller(){
@@ -26,7 +17,8 @@ public class BoxWithToys {
     }
     public void callManager(){
         if(boxCurrentState==2){
-            System.out.println("");
+            System.out.println("Заправьте автомат");
+            boxFiller();
         }
         if(boxCurrentState<boxCapacity/2){
             System.out.println("Достигнута половина вместимости коробки с игрушками");

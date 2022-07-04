@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Screen {
 
-    public void render(int numberOfTries){
-        System.out.println(numberOfTries);
+    public void render(Object obj){
+        System.out.println(obj);
     }
 }
