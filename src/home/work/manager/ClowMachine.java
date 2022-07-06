@@ -4,10 +4,7 @@ import home.work.entity.BoxWithToys;
 import home.work.entity.Clow;
 import home.work.entity.Screen;
 import home.work.entity.СoinReceiver;
-import home.work.service.IOService;
 import home.work.service.IOServiceImpl;
-
-import java.io.IOException;
 
 public class ClowMachine {
     private BoxWithToys box;
@@ -28,43 +25,64 @@ public class ClowMachine {
         this.screen = new Screen();
         this.incomingCash = 0;
         this.tries = 0;
-        this.cashAmount =0;
+        this.cashAmount = 0;
     }
 
     public void run() {
         welcomingMessage();
+        containerIsEmpty();
         getMoney();
         getTriesAmount(cashAmount);
         gameProcess(tries);
     }
+    public void reset(){
+        box.boxFiller();
+    }
 
     private void gameProcess(int numberOfTries) {
-        for (int i = 0; i < numberOfTries; i++) {
-            screen.render((i + 1) + " try :");
+        System.out.println("You have "+numberOfTries+" tries");
+        System.out.println("press 'START' button");
+
+      /*  for (int i = 0; i < numberOfTries; i++) {
+            System.out.println((i + 1) + " try :");
             clow.tryToGetToy();
         }
-        screen.render("THE END");
-    }
-    private void welcomingMessage() {
-        screen.render("Its ClowCrane");
-        screen.render("50 cent is 1 try ");
-        screen.render("Incert a coin to continue");
+        */
     }
 
-    private void notEnoughMoney(int incomingCash) {
-        if (incomingCash < 50 && cashAmount !=50 ) {
-            System.out.println("not enough");
-            this.cashAmount += incomingCash;
-            getMoney();
-        }
+    private void welcomingMessage() {
+        System.out.println("Its ClowCrane");
+        System.out.println("50 cent is 1 try ");
+        System.out.println("Incert a coin to continue");
+        System.out.println(box.getBoxCurrentState() + " toys in box");
+    }
+
+    private void containerIsEmpty() {
+        box.boxIsEmpty();
     }
 
     private void getMoney() {
+        int cash = 0;
+        notEnoughMoney(cash);
+    }
+
+    private void notEnoughMoney(int cash) {
         this.incomingCash = ioService.readInt();
-        notEnoughMoney(incomingCash);
+        if (incomingCash < 50) {
+            cash += incomingCash;
+            if (cash % 50 == 0) {
+                cashAmount = cash;
+                return;
+            } else {
+                notEnoughMoney(cash);
+            }
+        }
+        this.cashAmount = this.incomingCash;
     }
 
     private void getTriesAmount(int cashAmount) {
         this.tries = coinReceiver.tryCounter(cashAmount);
+        screen.onSilverScreen(String.valueOf(tries));
     }
+
 }

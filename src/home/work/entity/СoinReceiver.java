@@ -1,5 +1,7 @@
 package home.work.entity;
 
+import home.work.manager.ClowMachine;
+
 import java.io.IOException;
 
 public class СoinReceiver {
@@ -10,6 +12,7 @@ public class СoinReceiver {
     public СoinReceiver() {
         this.currentCashAmount = 0;
         this.tries = 0;
+
     }
 
     public int getCurrentCashAmount() {
@@ -22,11 +25,10 @@ public class СoinReceiver {
 
     public int tryCounter(int someCash) {
         setCurrentCashAmount(someCash);
-        if (this.currentCashAmount == MIN_COIN_FOR_TRY || currentCashAmount % MIN_COIN_FOR_TRY == 0) {
-            this.tries = currentCashAmount / MIN_COIN_FOR_TRY ;
-            if(this.tries==4)
-            {
-                this.tries++;
+        if (this.currentCashAmount % MIN_COIN_FOR_TRY == 0) {
+            this.tries = this.currentCashAmount / MIN_COIN_FOR_TRY;
+            if (this.tries % 4 == 0) {
+                this.tries+=(this.tries/4) ;
             }
             return this.tries;
         }

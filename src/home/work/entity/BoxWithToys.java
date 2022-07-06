@@ -1,27 +1,28 @@
 package home.work.entity;
 
+import home.work.exception.customRuntimeException;
+
 public class BoxWithToys {
     int boxCapacity;
     int boxCurrentState;
 
     public BoxWithToys() {
         this.boxCapacity = 10;
-        this.boxCurrentState = 0 ;
+        this.boxCurrentState = 10;
     }
+
     public int getBoxCurrentState() {
         return boxCurrentState;
     }
 
-    public void boxFiller(){
+    public void boxIsEmpty()  {
+        if (boxCurrentState <= 2) {
+            throw new customRuntimeException("no toys for game");
+        }
+    }
+
+    public void boxFiller() {
         this.boxCurrentState = boxCapacity;
     }
-    public void callManager(){
-        if(boxCurrentState==2){
-            System.out.println("Заправьте автомат");
-            boxFiller();
-        }
-        if(boxCurrentState<boxCapacity/2){
-            System.out.println("Достигнута половина вместимости коробки с игрушками");
-        }
-    }
+
 }

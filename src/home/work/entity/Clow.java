@@ -8,38 +8,26 @@ public class Clow {
     private int count;
 
     public Clow() {
-        this.count = 1;
+        this.count = 0;
         triesToWin = 5;
-        //random= new Random();
-        // createWinCondition();
+        random = new Random();
+        createWinCondition();
     }
 
-    public void tryToGetToy() {
-
-        if (this.count == triesToWin) {
-            System.out.println("VIctory");
-            this.count = 1;
-            // createWinCondition();
-        }else{
-            System.out.println("May be next time");
-        }
-        this.count++;
-
-    }
-     /*
-     public void tryToGetToy( ){
+    public void tryToGetToy( ) {
         triesToWin = random.nextInt(5);
-        if(this.count==triesToWin){
-            System.out.println("вы достали игрушку");
-            this.count=0;
+        if (this.count == triesToWin) {
+            System.out.println("VICTORY");
+            this.count = 0;
             createWinCondition();
         }
+        System.out.println("DEfeat");
         this.count++;
     }
 
 
-     private void createWinCondition(){
-         triesToWin = random.nextInt(5);
-     }
-     */
+    private void createWinCondition() {
+        triesToWin = random.nextInt(5);
+    }
+
 }

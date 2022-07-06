@@ -6,12 +6,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class IOServiceImpl implements  IOService{
+public class IOServiceImpl implements IOService {
     private Screen screen;
     private BufferedReader reader;
+
     public IOServiceImpl() {
         this.screen = new Screen();
-        reader= new BufferedReader(new InputStreamReader(System.in));
+        reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
     @Override
@@ -19,8 +20,9 @@ public class IOServiceImpl implements  IOService{
         try {
             return Integer.parseInt(reader.readLine());
         } catch (IOException e) {
-            screen.render("Неизвестная ошибка");
+            System.out.println("Неизвестная ошибка");
             return readInt();
         }
     }
+
 }

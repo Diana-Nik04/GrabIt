@@ -1,3 +1,4 @@
+import home.work.entity.Screen;
 import home.work.manager.ClowMachine;
 
 
@@ -8,4 +9,5 @@ public class Main {
         ClowMachine clowMachine= new ClowMachine();
         clowMachine.run();
     }
+
 }
